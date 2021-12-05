@@ -1,0 +1,21 @@
+#CabezalTotal{
+    width: 98.8%;
+    height: 95%;
+    border: 8px solid black;
+}
+
+#Logo{
+    width: 18.75%;
+    height: 89%;
+    float: left;
+    border: 8px solid black;
+    border-radius: 100%;
+    
+}
+
+#Titulo{
+    width: 80%;
+    height: 100%;
+    float: left;
+}
+

@@ -1,0 +1,19 @@
+#CuerpoTotal{
+    width: 98.5%;
+    height: 96.5%;
+    border: 8px solid black;
+}
+
+#Cuerpo-banner{
+    width: 100%;
+    height: 50%;
+}
+
+#Cuerpo-Comentarios{
+    width: 100%;
+    height: 80%;
+}
+#Cuerpo-Formulario{
+    width: 100%;
+    height: 20%;
+}

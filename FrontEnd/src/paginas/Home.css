@@ -1,0 +1,39 @@
+#Body {
+    width: 1305px;
+    height: 768px;  
+    
+}
+
+#Home-Cabezal{
+    width: 100%;
+    height: 20%;
+    float: left;
+    text-align: center;
+}
+
+#Home-MenuNavegacion{
+    width: 20%;
+    height: 60%;
+    float: left;
+    text-align: center;
+}
+
+#Home-Cuerpo{
+    width: 80%;
+    height: 80%;
+    float: right; 
+    text-align: center;
+    
+}
+
+#Home-Pie{
+    width: 20%;
+    height: 20%;
+    float: left;
+    text-align: center;
+}
+
+#id_carac{
+    width: 30%;
+    text-align: center;
+}
