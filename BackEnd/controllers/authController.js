@@ -45,7 +45,7 @@ module.exports.postRegistrar = async (req,res) => {
         const user = await User.create({firstname, lastname, email, password});
         const token = createToken(user._id);
         res.cookie("jwt", token, {httpOnly:true, maxAge: maxAge*1000});
-        res.status(200).json({ id: user._id, email })
+        res.status(200).json({ email })
     } catch (error) {
         const errors = manejoErrorEmail(error);
         res.status(400).json(errors);
@@ -74,18 +74,6 @@ module.exports.postCerrarSesion = async (req,res) => {
     res.send("postCerrarSesion");
 };
 
-module.exports.funcCitas = async (req,res) => {
-    console.log("postcitas");
-    const { fecha, horainicial, horafinal, disponible } = req.body;
-    try{
-        const citas = await Citas.create({fecha, horainicial, horafinal, disponible});
-        res.status(200).json({id: citas._id, fecha, horainicial, horafinal});
-    } catch (error) {
-        console.log(error);
-        res.status(400).json(error);
-    }
-};
-
 module.exports.getCitas = async (req,res) => {
     console.log("getcitas");
     try{
@@ -97,4 +85,38 @@ module.exports.getCitas = async (req,res) => {
     }
 };
 
+module.exports.getCita = async (req,res) => {
+    console.log("getcita");
+    const _id = req.params.id;
+    try{
+        const listacitas = await Citas.find({"_id": _id});
+        res.status(200).json(listacitas);
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+};
+
+
+module.exports.eliminarCitas = async (req,res) => {
+    console.log("eliminar citas");
+    const _id = req.params.id;
+    console.log(_id);   
+    try{
+        const citasactuales = await Citas.findByIdAndDelete({_id});
+        if(!citasactuales){
+            return res.status(400).json({
+                mensaje: 'No se encontró el id indicado',
+                error
+            });
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            mensaje: "Ocurrio un error",
+            error
+        });
+    }
+};
 

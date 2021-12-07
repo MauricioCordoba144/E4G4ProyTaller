@@ -1,6 +1,6 @@
 import React from 'react';
 import Cabezal from '../componentes/Cabezal';
-import CuerpoHome from '../componentes/comphome/CuerpoHome';
+import CuerpoHome from '../componentes/CuerpoHome';
 import MenuNavegacion from '../componentes/MenuNavegacion';
 import Pie from '../componentes/Pie';
 import './Home.css';

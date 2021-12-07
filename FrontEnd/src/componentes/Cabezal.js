@@ -8,7 +8,7 @@ function Cabezal(props){
         <div id="CabezalTotal">
             <div id="Logo">
                 <br/>
-                <img src={logo} width="70%" height="70%"></img>
+                <img src={logo} width="70%" height="70%" alt=""></img>
             </div>
             <div id="Titulo">
                 <h1>Reparamos Todo | Solucionamos cualquier problema</h1>

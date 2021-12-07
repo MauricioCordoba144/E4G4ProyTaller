@@ -2,22 +2,24 @@ const jwt = require("jsonwebtoken");
 
 const requireAuth = (req, res, next) => {
     const token = req.cookies.jwt;
-
-        if(token){
+    console.log(token);
+        if(!token){
+            return res.status(403).send("Falta token");
+        }
+        try{ 
             jwt.verify(token, process.env.JWT_SECRET, (error, tokenDecodificado) => {
                 if(error){
                     res.status(400).send("Acesso denegado");
                 } else {
                     console.log(tokenDecodificado);
-                    res.locals.user = tokenDecodificado;
                     next();
                 }
             })
-        } else {
-            res.status(400).send("Acesso denegado");
+        }catch(error){
+            return res.status(401).send("Token invalido");
         }
+        return next();
 
-    next();
 };
 
 module.exports = {requireAuth}

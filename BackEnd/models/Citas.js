@@ -4,6 +4,7 @@ const citasSchema = new mongoose.Schema({
     
     fecha:{
         type: String,
+        required: [true, "Se requiere la fecha"],
         index: true,
         lowercase: true,
     },

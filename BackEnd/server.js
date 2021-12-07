@@ -18,7 +18,7 @@ const { requireAuth } = require("./middleware/authMiddleWare");
 
 var corsOptions = {
     origin: "http://localhost:3000", //Se cambia en Heroku
-    optionsSuccessStatus: 200,
+    //optionsSuccessStatus: 200,
     credentials: true,
 };
 
@@ -54,8 +54,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 app.use(cors(corsOptions));
-app.use("/auth",authRoutes);
 app.use("/api", requireAuth, apiRoutes);
+app.use("/auth",authRoutes);
+
 
 
 
