@@ -1,9 +1,10 @@
 {
-  "name": "backend",
+  "name": "BackTallerEnd",
+  "description": "Cualquier cosa",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,5 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "validator": "^13.7.0"
-  },
-  "description": ""
+  }
 }
