@@ -37,7 +37,6 @@ const createToken = (id) => {
     return jwt.sign({id}, process.env.JWT_SECRET, {expiresIn: maxAge});
 };
 
-
 module.exports.postRegistrar = async (req,res) => {
     console.log("PostRegistrar");
     const { firstname, lastname, email, password } = req.body;
@@ -55,13 +54,15 @@ module.exports.postRegistrar = async (req,res) => {
 module.exports.postIniciarSesion = async (req,res) => {
     console.log("IniciarSesion");
     const { email, password } = req.body;
+    
+
     console.log(email);
     console.log(password);
     try{
         const user = await User.login(email, password);
         const token = createToken(user._id);
         res.cookie("jwt", token, {httpOnly:true, maxAge: maxAge*1000});
-        res.status(200).json({ id: user._id, email})
+        res.status(200).json({ id: user._id, firstname, email})
     } catch (error) {
         const errors = manejoError(error);
         res.status(400).json(errors);
@@ -97,26 +98,4 @@ module.exports.getCita = async (req,res) => {
     }
 };
 
-
-module.exports.eliminarCitas = async (req,res) => {
-    console.log("eliminar citas");
-    const _id = req.params.id;
-    console.log(_id);   
-    try{
-        const citasactuales = await Citas.findByIdAndDelete({_id});
-        if(!citasactuales){
-            return res.status(400).json({
-                mensaje: 'No se encontró el id indicado',
-                error
-            });
-        }
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({
-            mensaje: "Ocurrio un error",
-            error
-        });
-    }
-};
 

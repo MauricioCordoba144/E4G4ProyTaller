@@ -36,7 +36,7 @@ function AgregarCalendario() {
     
     async function eliminarDatos(id) {
         console.log(id);
-        axios.delete(`http://localhost:5000/auth/eliminar-citas/${id}`)
+        axios.delete(`http://localhost:5000/api/eliminar-citas/${id}`)
         .then(res => {
             console.log(res);
         })

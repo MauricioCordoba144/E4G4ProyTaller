@@ -12,8 +12,7 @@ function MenuNavegacion(){
                 <Link to="/registro"><p className="MenuProp"> Registro </p></Link>
                 <Link to="/login"><p className="MenuProp"> Login </p></Link>
                 <Link to="/calendario"><p className="MenuProp"> Calendario </p></Link>
-                <Link to="/agregarcalendario"><p className="MenuProp"> Otro </p></Link>
-                <Link to="/agendarcita"><p className="MenuProp"> citaagenda </p></Link>
+                <Link to="/agregarcalendario"><p className="MenuProp"> Agenda Calendario </p></Link>
             </div>
         </div>
     );    

@@ -12,3 +12,24 @@ module.exports.funcCitas = async (req,res) => {
     }
 };
 
+module.exports.eliminarCitas = async (req,res) => {
+    console.log("eliminar citas");
+    const _id = req.params.id;
+    console.log(_id);   
+    try{
+        const citasactuales = await Citas.findByIdAndDelete({_id});
+        if(!citasactuales){
+            return res.status(400).json({
+                mensaje: 'No se encontró el id indicado',
+                error
+            });
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            mensaje: "Ocurrio un error",
+            error
+        });
+    }
+};

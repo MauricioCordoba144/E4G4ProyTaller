@@ -11,11 +11,6 @@ axios.defaults.withCredentials = true;
 
 function PagAgendarCita(){
 
-    const [firstname,setFirstName] = useState("");
-    const [lastname,setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
     const [info, setInfo] = useState({});
     const [userID, setUserID] = useState("");
 
@@ -45,50 +40,15 @@ function PagAgendarCita(){
                 <MenuNavegacion/>
             </div>
             <div id="Home-Cuerpo">
-            <h2>Agendar cita <br/>
-           Llene el formulario a continuacion..</h2>
-       <form noValidate>
-           <h4>{userID}</h4>
-            <input
-                id="id_carac"
-                type="text"
-                placeholder="Nombres"
-                value={firstname}
-                onChange={(e) => setFirstName(e.target.value)}
-            />
-            <br/> <br/>
-            <h4>{info.fecha}</h4>
-            <input
-                id="id_carac"
-                type="text"
-                placeholder="Apellidos"
-                value={lastname}
-                onChange={(e) => setLastName(e.target.value)}
-            />
-            <br/> <br/>
-            <h4>Ingrese correo</h4>
-            *<input
-                id="id_carac"
-                type="text"
-                placeholder="Ejemplo@dominio.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />*
-            <br/> <br/>
-            <h4>Ingrese contraseña</h4>
-            *<input
-                id="id_carac"
-                type="text"
-                placeholder="Contraseña.."
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />*
-            <br/> <br/> 
-            <button
-                type="submit">
-                Realizar Registro
-            </button>
-            </form>
+                <h2>Agendar cita <br/>
+                Si pulsa el boton, se agendara la cita con la siguiente informacion:...</h2>
+
+                <h4>Fecha de la cita: {info.fecha}</h4>
+                <h4>ID del usuario: {userID}</h4>
+                <h4>Hora inicial: {info.horainicial}</h4>
+                <h4>Hora Final: {info.horafinal}</h4>
+
+                <button> Agendar </button>
             </div>
             <div id="Home-Pie">
                 <Pie/>

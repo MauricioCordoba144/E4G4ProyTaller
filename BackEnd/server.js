@@ -23,7 +23,6 @@ var corsOptions = {
 };
 
 const app = express();
-const port = (process.env.DB_PORT||3000);
 
 mongoose
     .connect(
@@ -34,7 +33,7 @@ mongoose
         "@" +
         process.env.DB_HOST +
         ":" +
-        port +
+        process.env.DB_PORT +
         "/" +
         process.env.DB_NAME +
         "?retryWrites=true&w=majority",
